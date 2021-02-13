@@ -45,7 +45,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: windows
-          ITCH_GAME: ${{ EXPORT_NAME }}
+          ITCH_GAME: ${EXPORT_NAME}
           ITCH_USER: velopman
           PACKAGE: build/windows
 
@@ -81,7 +81,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: linux
-          ITCH_GAME: ${{ EXPORT_NAME }}
+          ITCH_GAME: ${EXPORT_NAME}
           ITCH_USER: velopman
           PACKAGE: build/linux
 
@@ -117,7 +117,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: web
-          ITCH_GAME: ${{ EXPORT_NAME }}
+          ITCH_GAME: ${EXPORT_NAME}
           ITCH_USER: velopman
           PACKAGE: build/web
 
@@ -154,7 +154,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: mac
-          ITCH_GAME: ${{ EXPORT_NAME }}
+          ITCH_GAME: ${EXPORT_NAME}
           ITCH_USER: velopman
           PACKAGE: build/mac
           
