@@ -2,88 +2,172 @@
 
 [ext_resource path="res://source/circulation/vein.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://assets/art/blockage.png" type="Texture" id=3]
+[ext_resource path="res://source/circulation/limb.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/circulation/blockage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://source/circulation/heart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/circulation/blockage_end.tscn" type="PackedScene" id=6]
 
 [node name="main" type="Node2D"]
 
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 640, 150 )
+texture = ExtResource( 2 )
+
 [node name="heart" parent="." instance=ExtResource( 5 )]
+margin_left = 600.0
+margin_top = 250.0
+margin_right = 680.0
+margin_bottom = 270.0
 
 [node name="left_arm" type="Node2D" parent="heart"]
-position = Vector2( -30.5782, -7.02545 )
-rotation = -1.5708
 
 [node name="vein_0" parent="heart/left_arm" instance=ExtResource( 1 )]
-position = Vector2( 0, -0.748291 )
-
-[node name="blockage" parent="heart/left_arm" instance=ExtResource( 4 )]
-position = Vector2( -13.6664, -43.8598 )
+position = Vector2( 125, -10 )
 rotation = 1.5708
 
+[node name="blockage" parent="heart/left_arm" instance=ExtResource( 4 )]
+position = Vector2( 175, 0 )
+
 [node name="vein_1" parent="heart/left_arm" instance=ExtResource( 1 )]
-position = Vector2( -34.4221, -98.7767 )
-rotation = -0.785398
+position = Vector2( 225, -10 )
+rotation = 1.5708
 
 [node name="vein_2" parent="heart/left_arm" instance=ExtResource( 1 )]
-position = Vector2( -76.3274, -141.43 )
-rotation = -0.785398
+position = Vector2( 275, -10 )
+rotation = 1.5708
+
+[node name="limb" parent="heart/left_arm" instance=ExtResource( 3 )]
+margin_left = 310.0
+margin_top = -10.0
+margin_right = 360.0
+margin_bottom = 10.0
 
 [node name="vein_3" parent="heart/left_arm" instance=ExtResource( 1 )]
-position = Vector2( -95.0351, -121.226 )
-rotation = 2.35619
+position = Vector2( 275, 9.99998 )
+rotation = -1.5708
 
 [node name="vein_4" parent="heart/left_arm" instance=ExtResource( 1 )]
-position = Vector2( -53.8782, -79.3206 )
-rotation = 2.35619
+position = Vector2( 225, 10 )
+rotation = -1.5708
 
 [node name="blockage_end" parent="heart/left_arm" instance=ExtResource( 6 )]
 
 [node name="vein_5" parent="heart/left_arm" instance=ExtResource( 1 )]
-position = Vector2( -24.6941, 2.24475 )
-rotation = 3.14159
+position = Vector2( 125, 10 )
+rotation = -1.5708
 
 [node name="right_arm" type="Node2D" parent="heart"]
-position = Vector2( 95, -7.025 )
-rotation = -1.5708
-scale = Vector2( 1, -1 )
+position = Vector2( 80, 0 )
+scale = Vector2( -1, 1 )
 
 [node name="vein_0" parent="heart/right_arm" instance=ExtResource( 1 )]
-position = Vector2( 0, -0.748291 )
+position = Vector2( 125, -10 )
+rotation = 1.5708
+
+[node name="blockage" parent="heart/right_arm" instance=ExtResource( 4 )]
+position = Vector2( 175, 0 )
 
 [node name="vein_1" parent="heart/right_arm" instance=ExtResource( 1 )]
-position = Vector2( -34.4221, -98.7767 )
-rotation = -0.785398
+position = Vector2( 225, -10 )
+rotation = 1.5708
 
 [node name="vein_2" parent="heart/right_arm" instance=ExtResource( 1 )]
-position = Vector2( -76.3274, -141.43 )
-rotation = -0.785398
+position = Vector2( 275, -10 )
+rotation = 1.5708
+
+[node name="limb" parent="heart/right_arm" instance=ExtResource( 3 )]
+margin_left = 310.0
+margin_top = -10.0
+margin_right = 360.0
+margin_bottom = 10.0
 
 [node name="vein_3" parent="heart/right_arm" instance=ExtResource( 1 )]
-position = Vector2( -95.0351, -121.226 )
-rotation = 2.35619
+position = Vector2( 275, 9.99998 )
+rotation = -1.5708
 
 [node name="vein_4" parent="heart/right_arm" instance=ExtResource( 1 )]
-position = Vector2( -53.8782, -79.3206 )
-rotation = 2.35619
+position = Vector2( 225, 10 )
+rotation = -1.5708
+
+[node name="blockage_end" parent="heart/right_arm" instance=ExtResource( 6 )]
 
 [node name="vein_5" parent="heart/right_arm" instance=ExtResource( 1 )]
-position = Vector2( -24.6941, 2.24475 )
-rotation = 3.14159
+position = Vector2( 125, 10 )
+rotation = -1.5708
 
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 609.414, 149.858 )
-texture = ExtResource( 2 )
+[node name="left_leg" type="Node2D" parent="heart"]
+position = Vector2( 80, 0 )
+rotation = 1.5708
 
-[node name="blockage2" type="Sprite" parent="."]
-position = Vector2( 720.163, 212.716 )
-texture = ExtResource( 3 )
+[node name="vein_0" parent="heart/left_leg" instance=ExtResource( 1 )]
+position = Vector2( 125, -10 )
+rotation = 1.5708
 
-[node name="blockage3" type="Sprite" parent="."]
-position = Vector2( 552.542, 372.854 )
-texture = ExtResource( 3 )
+[node name="blockage" parent="heart/left_leg" instance=ExtResource( 4 )]
+position = Vector2( 175, 0 )
 
-[node name="blockage4" type="Sprite" parent="."]
-position = Vector2( 679.755, 369.112 )
-texture = ExtResource( 3 )
+[node name="vein_1" parent="heart/left_leg" instance=ExtResource( 1 )]
+position = Vector2( 225, -10 )
+rotation = 1.5708
+
+[node name="vein_2" parent="heart/left_leg" instance=ExtResource( 1 )]
+position = Vector2( 275, -10 )
+rotation = 1.5708
+
+[node name="limb" parent="heart/left_leg" instance=ExtResource( 3 )]
+margin_left = 310.0
+margin_top = -10.0
+margin_right = 360.0
+margin_bottom = 10.0
+
+[node name="vein_3" parent="heart/left_leg" instance=ExtResource( 1 )]
+position = Vector2( 275, 9.99998 )
+rotation = -1.5708
+
+[node name="vein_4" parent="heart/left_leg" instance=ExtResource( 1 )]
+position = Vector2( 225, 10 )
+rotation = -1.5708
+
+[node name="blockage_end" parent="heart/left_leg" instance=ExtResource( 6 )]
+
+[node name="vein_5" parent="heart/left_leg" instance=ExtResource( 1 )]
+position = Vector2( 125, 10 )
+rotation = -1.5708
+
+[node name="right_leg" type="Node2D" parent="heart"]
+rotation = 1.5708
+
+[node name="vein_0" parent="heart/right_leg" instance=ExtResource( 1 )]
+position = Vector2( 125, -10 )
+rotation = 1.5708
+
+[node name="blockage" parent="heart/right_leg" instance=ExtResource( 4 )]
+position = Vector2( 175, 0 )
+
+[node name="vein_1" parent="heart/right_leg" instance=ExtResource( 1 )]
+position = Vector2( 225, -10 )
+rotation = 1.5708
+
+[node name="vein_2" parent="heart/right_leg" instance=ExtResource( 1 )]
+position = Vector2( 275, -10 )
+rotation = 1.5708
+
+[node name="limb" parent="heart/right_leg" instance=ExtResource( 3 )]
+margin_left = 310.0
+margin_top = -10.0
+margin_right = 360.0
+margin_bottom = 10.0
+
+[node name="vein_3" parent="heart/right_leg" instance=ExtResource( 1 )]
+position = Vector2( 275, 9.99998 )
+rotation = -1.5708
+
+[node name="vein_4" parent="heart/right_leg" instance=ExtResource( 1 )]
+position = Vector2( 225, 10 )
+rotation = -1.5708
+
+[node name="blockage_end" parent="heart/right_leg" instance=ExtResource( 6 )]
+
+[node name="vein_5" parent="heart/right_leg" instance=ExtResource( 1 )]
+position = Vector2( 125, 10 )
+rotation = -1.5708

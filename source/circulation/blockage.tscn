@@ -4,6 +4,5 @@
 [ext_resource path="res://source/circulation/blockage.gd" type="Script" id=2]
 
 [node name="blockage" type="Sprite"]
-position = Vector2( 504.65, 214.213 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
