@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  EXPORT_NAME: godot-template
+  EXPORT_NAME: pump-it
   GODOT_VERSION: 3.2.3
 
 jobs:
