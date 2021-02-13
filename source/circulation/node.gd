@@ -1,13 +1,19 @@
 class_name CirculationNode extends Node
 
 
-var next_node: CirculationNode
+var _next_node: CirculationNode
+var _previous_node: CirculationNode
 
 
-func flow() -> void:
-	if self.next_node:
-		self.next_node.flow()
+func flow(from_node: CirculationNode) -> void:
+	if self._next_node:
+		self._next_node.flow(self)
 
 
 func set_next_node(node: CirculationNode) -> void:
-	self.next_node = node
+	self._next_node = node
+	node._set_previous_node(self)
+
+
+func _set_previous_node(node: CirculationNode) -> void:
+	self._previous_node = node

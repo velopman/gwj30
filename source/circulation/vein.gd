@@ -6,13 +6,13 @@ func _ready() -> void:
 	self.modulate = Color.gray
 
 
-func flow() -> void:
+func flow(from_node: CirculationNode) -> void:
 	self.modulate = Color.white
 
 	self.flow_timer.start(0.1)
 	yield(flow_timer, "timeout")
 
-	.flow()
+	.flow(from_node)
 
 	self.flow_timer.start(0.1)
 	yield(flow_timer, "timeout")

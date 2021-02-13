@@ -26,4 +26,4 @@ func _ready() -> void:
 
 func __pressed():
 	for limb_node in self.__limb_nodes:
-		limb_node.flow()
+		limb_node.flow(null)
