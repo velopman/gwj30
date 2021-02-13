@@ -14,6 +14,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/tasks/base_task.gd"
 }, {
+"base": "CirculationNode",
+"class": "Blockage",
+"language": "GDScript",
+"path": "res://source/circulation/blockage.gd"
+}, {
+"base": "CirculationNode",
+"class": "BlockageEnd",
+"language": "GDScript",
+"path": "res://source/circulation/blockage_end.gd"
+}, {
+"base": "Node",
+"class": "CirculationNode",
+"language": "GDScript",
+"path": "res://source/circulation/node.gd"
+}, {
 "base": "Reference",
 "class": "CurrentQueue",
 "language": "GDScript",
@@ -33,18 +48,27 @@ _global_script_classes=[ {
 "class": "TaskQueue",
 "language": "GDScript",
 "path": "res://source/tasks/task_queue.gd"
+}, {
+"base": "CirculationNode",
+"class": "Vein",
+"language": "GDScript",
+"path": "res://source/circulation/vein.gd"
 } ]
 _global_script_class_icons={
 "BaseTask": "",
+"Blockage": "",
+"BlockageEnd": "",
+"CirculationNode": "",
 "CurrentQueue": "",
 "PlayerInput": "",
 "Task": "",
-"TaskQueue": ""
+"TaskQueue": "",
+"Vein": ""
 }
 
 [application]
 
-config/name="Pump it!"
+config/name="pump-it"
 run/main_scene="res://source/main.tscn"
 config/icon="res://icon.png"
 
@@ -69,6 +93,29 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [rendering]
 

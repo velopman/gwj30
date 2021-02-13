@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/art/vein.png" type="Texture" id=1]
+[ext_resource path="res://source/circulation/vein.gd" type="Script" id=2]
+
+[node name="vein" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="flow_timer" type="Timer" parent="."]

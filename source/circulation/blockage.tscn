@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/art/blockage.png" type="Texture" id=1]
+[ext_resource path="res://source/circulation/blockage.gd" type="Script" id=2]
+
+[node name="blockage" type="Sprite"]
+position = Vector2( 504.65, 214.213 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
