@@ -38,3 +38,16 @@ func set_next_node(node: CirculationNode) -> void:
 func _set_previous_node(node: CirculationNode) -> void:
 	if self._previous_node == null:
 		._set_previous_node(node)
+
+
+func _on_area_input_event(viewport, event, shape_idx):
+	if !self.__blocked:
+		return
+
+	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.is_pressed():
+		Event.emit_signal("unblock_started")
+		yield(Event, "unblock_finished")
+
+		self.__blocked = false
+		self.modulate = Color.white
+		print(self.__blocked)

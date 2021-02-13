@@ -5,6 +5,7 @@ const EVENT_COOLDOWN_INITIAL: float = 5.0
 const EVENT_FREQUENCY_INITIAL: float = 5.0
 
 onready var __timer: Timer = $timer
+onready var __minigames: Array = $mini_games.get_children()
 onready var __blockages: Array = self.get_tree().get_nodes_in_group("blockage")
 
 var __event_cooldown: float = self.EVENT_COOLDOWN_INITIAL
@@ -16,6 +17,8 @@ var __started: bool
 func _ready() -> void:
 	randomize()
 	self.__start()
+
+	Event.connect("unblock_started", self, "__start_minigame")
 
 
 func _process(delta: float) -> void:
@@ -39,6 +42,13 @@ func _process(delta: float) -> void:
 func __start() -> void:
 	# TODO: timer stuff / countdown
 	self.__started = true
+
+
+func __start_minigame() -> void:
+	var index = randi() % self.__minigames.size()
+	var minigame = self.__minigames[index]
+
+	minigame.start()
 
 
 func __trigger_event() -> void:

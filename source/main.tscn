@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://source/circulation/vein.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://source/circulation/heart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/circulation/blockage_end.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/main.gd" type="Script" id=7]
+[ext_resource path="res://source/mini_games/pipe_patch.tscn" type="PackedScene" id=8]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 7 )
@@ -184,3 +185,9 @@ rotation = -1.5708
 [node name="vein_5" parent="heart/right_leg" instance=ExtResource( 1 )]
 position = Vector2( 125, 10 )
 rotation = -1.5708
+
+[node name="mini_games" type="Node2D" parent="."]
+position = Vector2( 640, 360 )
+
+[node name="pipe_patch" parent="mini_games" instance=ExtResource( 8 )]
+visible = false
