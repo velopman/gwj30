@@ -7,9 +7,13 @@ var _incoming_node = null
 var __blocked = false
 
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		self.__blocked = !self.__blocked
+func _ready():
+	self.add_to_group("blockage")
+
+
+func block() -> void:
+	self.__blocked = true
+	self.modulate = Color.red
 
 
 func flow(from_node: CirculationNode) -> void:
@@ -17,6 +21,10 @@ func flow(from_node: CirculationNode) -> void:
 		self._incoming_node.flow(self)
 	else:
 		self._outgoing_node.flow(self)
+
+
+func is_blocked() -> bool:
+	return self.__blocked
 
 
 func set_next_node(node: CirculationNode) -> void:

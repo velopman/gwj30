@@ -34,3 +34,10 @@
 #	- block()
 #	- unblock()
 #	- flow()
+
+
+# Systems
+#	events -> blockages
+#	heartrate -> optimal zone, outside of which limbs decay faster
+#		head is a balloon that too much pumping will pop, not enough pumping will deflate
+#	minigames -> clean pipe, patch pipe, unbend pipe
