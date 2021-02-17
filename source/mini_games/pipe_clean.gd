@@ -1,6 +1,6 @@
 extends Sprite
 
-const CLEAR_RADIUS: int = 5
+const CLEAR_RADIUS: int = 7
 
 onready var __dust: TileMap = $dust
 onready var __timer: Timer = $timer

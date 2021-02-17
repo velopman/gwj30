@@ -1,11 +1,35 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://source/circulation/limb.gd" type="Script" id=1]
+[ext_resource path="res://source/circulation/vein.tscn" type="PackedScene" id=2]
+[ext_resource path="res://source/circulation/vein.gd" type="Script" id=3]
 
-[node name="limb" type="ProgressBar"]
-margin_right = 50.0
-margin_bottom = 20.0
+[node name="limb" type="Node2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="vein" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 75, -10 )
+script = ExtResource( 3 )
+
+[node name="vein2" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150, -10 )
+script = ExtResource( 3 )
+
+[node name="vein3" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 225, -10 )
+script = ExtResource( 3 )
+
+[node name="vein4" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 225, 10 )
+rotation = 3.14159
+script = ExtResource( 3 )
+
+[node name="vein5" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150, 10 )
+rotation = 3.14159
+script = ExtResource( 3 )
+
+[node name="vein6" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 75, 10 )
+rotation = 3.14159
+script = ExtResource( 3 )

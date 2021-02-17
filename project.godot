@@ -14,16 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/tasks/base_task.gd"
 }, {
-"base": "CirculationNode",
-"class": "Blockage",
-"language": "GDScript",
-"path": "res://source/circulation/blockage.gd"
-}, {
-"base": "CirculationNode",
-"class": "BlockageEnd",
-"language": "GDScript",
-"path": "res://source/circulation/blockage_end.gd"
-}, {
 "base": "Node",
 "class": "CirculationNode",
 "language": "GDScript",
@@ -61,8 +51,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BaseTask": "",
-"Blockage": "",
-"BlockageEnd": "",
 "CirculationNode": "",
 "CurrentQueue": "",
 "Limb": "",
@@ -81,8 +69,8 @@ config/icon="res://icon.png"
 [autoload]
 
 WebBuild="*res://source/autoloads/web_build.gd"
-Globals="*res://source/autoloads/globals.gd"
 Event="*res://source/autoloads/event.gd"
+Globals="*res://source/autoloads/globals.gd"
 FileManager="*res://source/autoloads/file_manager.gd"
 SettingsManager="*res://source/autoloads/settings_manager.gd"
 Logger="*res://source/autoloads/logger.gd"

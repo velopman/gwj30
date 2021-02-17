@@ -6,7 +6,7 @@ const EVENT_FREQUENCY_INITIAL: float = 5.0
 
 onready var __timer: Timer = $timer
 onready var __minigames: Array = $mini_games.get_children()
-onready var __blockages: Array = self.get_tree().get_nodes_in_group("blockage")
+onready var __blockables: Array = self.get_tree().get_nodes_in_group("blockable")
 
 var __event_cooldown: float = self.EVENT_COOLDOWN_INITIAL
 var __event_frequency: float = self.EVENT_FREQUENCY_INITIAL
@@ -43,8 +43,11 @@ func __start() -> void:
 
 
 func __trigger_event() -> void:
-	var index = randi() % self.__blockages.size()
-	var blockage = self.__blockages[index]
+	if self.__blockables.empty():
+		return
+
+	var index = randi() % self.__blockables.size()
+	var blockage = self.__blockables[index]
 
 	if blockage.is_blocked():
 		return

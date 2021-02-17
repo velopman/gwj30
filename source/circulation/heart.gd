@@ -1,27 +1,16 @@
-extends Button
+extends Node2D
 
-
-onready var __limbs = self.get_children()
+onready var __button = $button
 
 var __limb_nodes = []
 
 
 func _ready() -> void:
-	for limb in self.__limbs:
-		var previous_node = null
-		var blockages = []
-		for node in limb.get_children():
-			if node is Blockage:
-				blockages.append(node)
-			elif node is BlockageEnd:
-				node = blockages.pop_back()
+	for limb in self.get_children():
+		if limb is Limb:
+			self.__limb_nodes.append(limb)
 
-			if previous_node:
-				previous_node.set_next_node(node)
-			else:
-				self.__limb_nodes.append(node)
-			previous_node = node
-	self.connect("pressed", self, "__pressed")
+	self.__button.connect("pressed", self, "__pressed")
 
 
 func __pressed():
