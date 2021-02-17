@@ -2,6 +2,7 @@ class_name CirculationNode extends Node
 
 
 var _blocked: bool = false
+var _dead: bool = false
 var _limb: CirculationNode = null
 var _next_node: CirculationNode = null
 var _previous_node: CirculationNode = null
@@ -19,6 +20,14 @@ func flow(from_node: CirculationNode) -> void:
 
 func is_blocked() -> bool:
 	return self._blocked
+
+
+func is_dead() -> bool:
+	return self._dead
+
+
+func kill() -> void:
+	self._dead = true
 
 
 func set_limb(node: CirculationNode) -> void:

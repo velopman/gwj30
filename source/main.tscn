@@ -29,4 +29,13 @@ position = Vector2( 640, 250 )
 
 [node name="limb" parent="heart" instance=ExtResource( 3 )]
 
+[node name="limb2" parent="heart" instance=ExtResource( 3 )]
+position = Vector2( 0, 75 )
+
+[node name="limb3" parent="heart" instance=ExtResource( 3 )]
+position = Vector2( 0, 150 )
+
+[node name="limb4" parent="heart" instance=ExtResource( 3 )]
+position = Vector2( 0, 225 )
+
 [node name="mini_games" parent="." instance=ExtResource( 8 )]
