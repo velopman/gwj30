@@ -50,4 +50,3 @@ func _on_area_input_event(viewport, event, shape_idx):
 
 		self.__blocked = false
 		self.modulate = Color.white
-		print(self.__blocked)

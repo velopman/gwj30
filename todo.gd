@@ -41,3 +41,14 @@
 #	heartrate -> optimal zone, outside of which limbs decay faster
 #		head is a balloon that too much pumping will pop, not enough pumping will deflate
 #	minigames -> clean pipe, patch pipe, unbend pipe
+
+
+# update all nodes to be blockable (veins)
+# remove blockage node
+# add limb controller that knows about all the elements and if one of them
+#	is blocked (preventing two blockages in the same limb)
+# update blockage creator
+# add scoring system
+# add new minigames
+# balance timings for blockages
+#

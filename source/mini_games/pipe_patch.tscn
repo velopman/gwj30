@@ -28,7 +28,6 @@ extents = Vector2( 15, 13 )
 [node name="pipe_patch" type="AnimatedSprite"]
 frames = SubResource( 1 )
 animation = "leaking"
-frame = 2
 speed_scale = 2.0
 playing = true
 script = ExtResource( 5 )

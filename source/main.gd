@@ -18,8 +18,6 @@ func _ready() -> void:
 	randomize()
 	self.__start()
 
-	Event.connect("unblock_started", self, "__start_minigame")
-
 
 func _process(delta: float) -> void:
 	$text.text = "started: %s\ncooldown: %f\nfrequency: %f" % [
@@ -42,13 +40,6 @@ func _process(delta: float) -> void:
 func __start() -> void:
 	# TODO: timer stuff / countdown
 	self.__started = true
-
-
-func __start_minigame() -> void:
-	var index = randi() % self.__minigames.size()
-	var minigame = self.__minigames[index]
-
-	minigame.start()
 
 
 func __trigger_event() -> void:

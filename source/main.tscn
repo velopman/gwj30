@@ -7,7 +7,7 @@
 [ext_resource path="res://source/circulation/heart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/circulation/blockage_end.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/main.gd" type="Script" id=7]
-[ext_resource path="res://source/mini_games/pipe_patch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://source/mini_games/mini_games.tscn" type="PackedScene" id=8]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 7 )
@@ -186,8 +186,4 @@ rotation = -1.5708
 position = Vector2( 125, 10 )
 rotation = -1.5708
 
-[node name="mini_games" type="Node2D" parent="."]
-position = Vector2( 640, 360 )
-
-[node name="pipe_patch" parent="mini_games" instance=ExtResource( 8 )]
-visible = false
+[node name="mini_games" parent="." instance=ExtResource( 8 )]
