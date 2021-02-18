@@ -1,8 +1,10 @@
 extends Node2D
 
 onready var __button = $button
+onready var __heartbeat = $heartbeat
 
 var __limb_nodes = []
+var __pumping = false
 
 
 # Lifecycle methods
@@ -27,5 +29,17 @@ func limb_count() -> int:
 
 # Private methods
 func __pressed():
+	if self.__pumping:
+		return
+
+	self.__heartbeat.play()
 	for limb_node in self.__limb_nodes:
 		limb_node.flow(null)
+
+	self.__button.disabled = true
+	self.__pumping = true
+
+	yield(self.__heartbeat, "finished")
+
+	self.__button.disabled = false
+	self.__pumping = false

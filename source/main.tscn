@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://assets/music/music.ogg" type="AudioStream" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://source/circulation/limb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/music/success.ogg" type="AudioStream" id=4]
 [ext_resource path="res://source/circulation/heart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/main.gd" type="Script" id=7]
 [ext_resource path="res://source/mini_games/mini_games.tscn" type="PackedScene" id=8]
@@ -39,3 +41,11 @@ position = Vector2( 0, 150 )
 position = Vector2( 0, 225 )
 
 [node name="mini_games" parent="." instance=ExtResource( 8 )]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "Music"
+
+[node name="success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

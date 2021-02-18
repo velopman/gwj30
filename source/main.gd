@@ -4,10 +4,11 @@ extends Node2D
 const EVENT_COOLDOWN_INITIAL: float = 5.0
 const EVENT_FREQUENCY_INITIAL: float = 5.0
 
-onready var __timer: Timer = $timer
-onready var __minigames: Array = $mini_games.get_children()
 onready var __blockables: Array = self.get_tree().get_nodes_in_group("blockable")
 onready var __heart = $heart
+onready var __minigames: Array = $mini_games.get_children()
+onready var __success_audio: AudioStreamPlayer = $success
+onready var __timer: Timer = $timer
 
 var __event_cooldown: float = self.EVENT_COOLDOWN_INITIAL
 var __event_frequency: float = self.EVENT_FREQUENCY_INITIAL
@@ -21,6 +22,8 @@ var __score: int = 0
 func _ready() -> void:
 	randomize()
 	self.__start()
+
+	Event.connect("unblock_finished", self.__success_audio, "play")
 
 
 func _process(delta: float) -> void:

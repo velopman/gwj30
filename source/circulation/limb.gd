@@ -6,6 +6,7 @@ const HEALTH_MAX: float = 25.0
 const HEALTH_REGEN: float = 2.5
 
 onready var __timer: Timer  = $timer
+onready var __blocked_audio: AudioStreamPlayer2D = $blocked
 
 var __nodes: Array = []
 var __health: float = HEALTH_MAX
@@ -44,6 +45,7 @@ func block() -> void:
 
 	var index: int = randi() % self.__nodes.size()
 	self.__nodes[index].block()
+	self.__blocked_audio.play()
 
 
 func flow(from_node: CirculationNode) -> void:
