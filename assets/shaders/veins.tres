@@ -1,0 +1,36 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float start_time = 0.0;
+
+uniform float y_start = 0.0;
+uniform float y_end = 1.0;
+
+uniform float blocked_y = 2.0;
+
+void fragment() 
+{
+	vec4 color = texture(TEXTURE, UV);
+	
+	if (color.a == 1.0) {
+		float position = mix(y_start, y_end, (TIME - start_time) * 1.0 / 0.3);
+		float dist = distance(vec2(position, 0.0), vec2(UV.y, 0.0));
+	
+		if (dist <= 0.05)
+		{
+			color = mix(color, vec4(1.0), 0.5  );
+		}
+		
+	}
+	
+	COLOR = color;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/start_time = 0.0
+shader_param/y_start = 0.0
+shader_param/y_end = 1.0
+shader_param/blocked_y = 2.0
