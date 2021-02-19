@@ -1,12 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://assets/music/music.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/music.ogg" type="AudioStream" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://source/circulation/limb.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/music/success.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/success.ogg" type="AudioStream" id=4]
 [ext_resource path="res://source/circulation/heart.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/art/human.png" type="Texture" id=6]
 [ext_resource path="res://source/main.gd" type="Script" id=7]
 [ext_resource path="res://source/mini_games/mini_games.tscn" type="PackedScene" id=8]
+[ext_resource path="res://source/circulation/vein.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/art/left_arm_in.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/left_arm_out.png" type="Texture" id=12]
+[ext_resource path="res://assets/shaders/veins.tres" type="Material" id=13]
+[ext_resource path="res://source/circulation/vein_out.gd" type="Script" id=14]
+[ext_resource path="res://source/circulation/vein_in.gd" type="Script" id=15]
+[ext_resource path="res://assets/art/left_leg_in.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/left_leg_out.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/right_leg_in.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/right_leg_out.png" type="Texture" id=19]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 7 )
@@ -22,30 +33,177 @@ __meta__ = {
 
 [node name="timer" type="Timer" parent="."]
 
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 640, 150 )
+[node name="human" type="Sprite" parent="."]
+position = Vector2( 623, 360 )
+rotation = -1.5708
+texture = ExtResource( 6 )
+
+[node name="icon" type="Sprite" parent="human"]
+position = Vector2( 0.876862, -510.799 )
 texture = ExtResource( 2 )
 
-[node name="heart" parent="." instance=ExtResource( 5 )]
-position = Vector2( 640, 250 )
+[node name="heart" parent="human" instance=ExtResource( 5 )]
+position = Vector2( 2.32413, -313.242 )
+z_index = 2
 
-[node name="limb" parent="heart" instance=ExtResource( 3 )]
+[node name="left_arm" parent="human/heart" instance=ExtResource( 3 )]
 
-[node name="limb2" parent="heart" instance=ExtResource( 3 )]
-position = Vector2( 0, 75 )
+[node name="in" type="Sprite" parent="human/heart/left_arm"]
+material = ExtResource( 13 )
+position = Vector2( 145.758, 155.422 )
+z_index = -1
+texture = ExtResource( 11 )
+script = ExtResource( 15 )
 
-[node name="limb3" parent="heart" instance=ExtResource( 3 )]
-position = Vector2( 0, 150 )
+[node name="out" type="Sprite" parent="human/heart/left_arm"]
+material = ExtResource( 13 )
+position = Vector2( 150.307, 144.305 )
+z_index = -1
+texture = ExtResource( 12 )
+script = ExtResource( 14 )
 
-[node name="limb4" parent="heart" instance=ExtResource( 3 )]
-position = Vector2( 0, 225 )
+[node name="vein" parent="human/heart/left_arm" instance=ExtResource( 9 )]
+position = Vector2( 98.8569, -8.87985 )
+rotation = 0.417931
+
+[node name="vein2" parent="human/heart/left_arm" instance=ExtResource( 9 )]
+position = Vector2( 174.631, 91.056 )
+rotation = 1.17004
+
+[node name="vein3" parent="human/heart/left_arm" instance=ExtResource( 9 )]
+position = Vector2( 223.63, 223.206 )
+rotation = 1.2648
+
+[node name="vein4" parent="human/heart/left_arm" instance=ExtResource( 9 )]
+position = Vector2( 209.895, 227.951 )
+rotation = 4.34112
+
+[node name="vein5" parent="human/heart/left_arm" instance=ExtResource( 9 )]
+position = Vector2( 156.706, 98.3471 )
+rotation = 4.28701
+
+[node name="vein6" parent="human/heart/left_arm" instance=ExtResource( 9 )]
+position = Vector2( 89.0321, 7.44977 )
+rotation = 3.57512
+
+[node name="right_arm" parent="human/heart" instance=ExtResource( 3 )]
+position = Vector2( -5, 0 )
+scale = Vector2( -1, 1 )
+
+[node name="in" type="Sprite" parent="human/heart/right_arm"]
+material = ExtResource( 13 )
+position = Vector2( 145.758, 155.422 )
+z_index = -1
+texture = ExtResource( 11 )
+script = ExtResource( 15 )
+
+[node name="out" type="Sprite" parent="human/heart/right_arm"]
+material = ExtResource( 13 )
+position = Vector2( 150.307, 144.305 )
+z_index = -1
+texture = ExtResource( 12 )
+script = ExtResource( 14 )
+
+[node name="vein" parent="human/heart/right_arm" instance=ExtResource( 9 )]
+position = Vector2( 98.8569, -8.87985 )
+rotation = 0.417931
+
+[node name="vein2" parent="human/heart/right_arm" instance=ExtResource( 9 )]
+position = Vector2( 174.631, 91.056 )
+rotation = 1.17004
+
+[node name="vein3" parent="human/heart/right_arm" instance=ExtResource( 9 )]
+position = Vector2( 223.63, 223.206 )
+rotation = 1.2648
+
+[node name="vein4" parent="human/heart/right_arm" instance=ExtResource( 9 )]
+position = Vector2( 209.895, 227.951 )
+rotation = 4.34112
+
+[node name="vein5" parent="human/heart/right_arm" instance=ExtResource( 9 )]
+position = Vector2( 156.706, 98.3471 )
+rotation = 4.28701
+
+[node name="vein6" parent="human/heart/right_arm" instance=ExtResource( 9 )]
+position = Vector2( 89.0321, 7.44977 )
+rotation = 3.57512
+
+[node name="left_leg" parent="human/heart" instance=ExtResource( 3 )]
+
+[node name="left_leg_in" type="Sprite" parent="human/heart/left_leg"]
+material = ExtResource( 13 )
+position = Vector2( 36, 426 )
+z_index = -1
+texture = ExtResource( 16 )
+script = ExtResource( 15 )
+
+[node name="left_leg_out" type="Sprite" parent="human/heart/left_leg"]
+material = ExtResource( 13 )
+position = Vector2( 46, 431 )
+z_index = -1
+texture = ExtResource( 17 )
+script = ExtResource( 14 )
+
+[node name="vein" parent="human/heart/left_leg" instance=ExtResource( 9 )]
+position = Vector2( 81.8461, 324.586 )
+
+[node name="vein2" parent="human/heart/left_leg" instance=ExtResource( 9 )]
+position = Vector2( 77.3605, 536.492 )
+
+[node name="vein3" parent="human/heart/left_leg" instance=ExtResource( 9 )]
+position = Vector2( 78.4809, 752.883 )
+
+[node name="vein4" parent="human/heart/left_leg" instance=ExtResource( 9 )]
+position = Vector2( 58.86, 752.322 )
+
+[node name="vein5" parent="human/heart/left_leg" instance=ExtResource( 9 )]
+position = Vector2( 54.376, 536.492 )
+
+[node name="vein6" parent="human/heart/left_leg" instance=ExtResource( 9 )]
+position = Vector2( 46.5284, 325.147 )
+
+[node name="right_leg" parent="human/heart" instance=ExtResource( 3 )]
+
+[node name="right_leg_in" type="Sprite" parent="human/heart/right_leg"]
+material = ExtResource( 13 )
+position = Vector2( -17, 426 )
+z_index = -1
+texture = ExtResource( 18 )
+script = ExtResource( 15 )
+
+[node name="right_leg_out" type="Sprite" parent="human/heart/right_leg"]
+material = ExtResource( 13 )
+position = Vector2( -51, 442 )
+z_index = -1
+texture = ExtResource( 19 )
+script = ExtResource( 14 )
+
+[node name="vein" parent="human/heart/right_leg" instance=ExtResource( 9 )]
+position = Vector2( -85.7726, 324.586 )
+
+[node name="vein2" parent="human/heart/right_leg" instance=ExtResource( 9 )]
+position = Vector2( -82.4098, 537.052 )
+
+[node name="vein3" parent="human/heart/right_leg" instance=ExtResource( 9 )]
+position = Vector2( -82.9713, 759.049 )
+
+[node name="vein4" parent="human/heart/right_leg" instance=ExtResource( 9 )]
+position = Vector2( -62.2291, 757.928 )
+
+[node name="vein5" parent="human/heart/right_leg" instance=ExtResource( 9 )]
+position = Vector2( -60.5465, 535.37 )
+
+[node name="vein6" parent="human/heart/right_leg" instance=ExtResource( 9 )]
+position = Vector2( -50.455, 324.025 )
 
 [node name="mini_games" parent="." instance=ExtResource( 8 )]
+position = Vector2( 623, 360 )
+z_index = 3
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
-bus = "Music"
 
 [node name="success" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+bus = "Sound Effects"

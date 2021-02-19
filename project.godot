@@ -48,6 +48,16 @@ _global_script_classes=[ {
 "class": "Vein",
 "language": "GDScript",
 "path": "res://source/circulation/vein.gd"
+}, {
+"base": "Sprite",
+"class": "VeinIn",
+"language": "GDScript",
+"path": "res://source/circulation/vein_in.gd"
+}, {
+"base": "Sprite",
+"class": "VeinOut",
+"language": "GDScript",
+"path": "res://source/circulation/vein_out.gd"
 } ]
 _global_script_class_icons={
 "BaseTask": "",
@@ -57,7 +67,9 @@ _global_script_class_icons={
 "PlayerInput": "",
 "Task": "",
 "TaskQueue": "",
-"Vein": ""
+"Vein": "",
+"VeinIn": "",
+"VeinOut": ""
 }
 
 [application]

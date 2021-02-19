@@ -1,9 +1,13 @@
 class_name Vein extends CirculationNode
 
 
-export(Color) var color_normal = Color("5a9d2c")
+#export(Color) var color_normal = Color("5a9d2c")
+#export(Color) var color_flowing = Color("6abe30")
+#export(Color) var color_blocked = Color("8c2020")
+#export(Color) var color_dead = Color("3e3e3e")
+export(Color) var color_normal = Color("6abe30")
 export(Color) var color_flowing = Color("6abe30")
-export(Color) var color_blocked = Color("8c2020")
+export(Color) var color_blocked = Color("782424")
 export(Color) var color_dead = Color("3e3e3e")
 
 
@@ -34,7 +38,7 @@ func block() -> void:
 
 	self.__hazard.visible = true
 	self.__hazard.rotation = -self.global_rotation
-	self.__hazard.global_position = self.global_position + Vector2(0.0, -16.0)
+	self.__hazard.global_position = self.global_position
 
 	for area in self.__areas:
 		area.input_pickable = true

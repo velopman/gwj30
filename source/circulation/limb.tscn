@@ -1,34 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://source/circulation/limb.gd" type="Script" id=1]
-[ext_resource path="res://source/circulation/vein.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/music/blocked.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/blocked.ogg" type="AudioStream" id=3]
 
 [node name="limb" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="blocked" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-
 [node name="timer" type="Timer" parent="."]
 
-[node name="vein" parent="." instance=ExtResource( 2 )]
-position = Vector2( 75, -10 )
-
-[node name="vein2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 150, -10 )
-
-[node name="vein3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 225, -10 )
-
-[node name="vein4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 225, 10 )
-rotation = 3.14159
-
-[node name="vein5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 150, 10 )
-rotation = 3.14159
-
-[node name="vein6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 75, 10 )
-rotation = 3.14159
+[node name="blocked" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+bus = "Sound Effects"

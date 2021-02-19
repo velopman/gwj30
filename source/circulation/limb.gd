@@ -10,6 +10,8 @@ onready var __blocked_audio: AudioStreamPlayer2D = $blocked
 
 var __nodes: Array = []
 var __health: float = HEALTH_MAX
+var __vein_in: VeinIn = null
+var __vein_out: VeinOut = null
 
 
 # Lifecycle methods
@@ -19,6 +21,15 @@ func _ready() -> void:
 	var previous_node = self
 
 	for node in self.get_children():
+		if node is VeinIn:
+			self.__vein_in = node
+			continue
+
+		if node is VeinOut:
+			self.__vein_out = node
+			continue
+
+
 		if !node is CirculationNode:
 			continue
 
@@ -51,6 +62,7 @@ func block() -> void:
 func flow(from_node: CirculationNode) -> void:
 	if from_node == null:
 		.flow(from_node)
+		self.__handle_visual_flow()
 	else:
 		self._update_health(self.HEALTH_REGEN)
 
@@ -74,3 +86,32 @@ func _update_health(amount: float) -> void:
 
 	if self.__health == self.HEALTH_MIN:
 		self.kill()
+
+
+# Private methods
+func __handle_visual_flow() -> void:
+	var blocked_index: int = -1
+
+	for index in self.__nodes.size():
+		if self.__nodes[index].is_blocked():
+			blocked_index = index
+			break
+
+	var start_time = OS.get_ticks_msec() / 1000.0
+	self.__vein_out.material.set_shader_param("start_time", start_time)
+
+	if self.is_blocked() && blocked_index < self.__nodes.size() / 2:
+		var blocked_y: float = self.__nodes[blocked_index].position.y
+		self.__vein_out.material.set_shader_param("blocked_y", blocked_y)
+		return
+
+	self.__timer.start(0.3)
+	yield(self.__timer, "timeout")
+
+	start_time = OS.get_ticks_msec() / 1000.0
+	self.__vein_in.material.set_shader_param("start_time", start_time)
+
+
+	if self.is_blocked() && blocked_index >= self.__nodes.size() / 2:
+		var blocked_y: float = self.__nodes[blocked_index].position.y
+		self.__vein_out.material.set_shader_param("blocked_y", blocked_y)

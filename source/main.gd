@@ -5,7 +5,7 @@ const EVENT_COOLDOWN_INITIAL: float = 5.0
 const EVENT_FREQUENCY_INITIAL: float = 5.0
 
 onready var __blockables: Array = self.get_tree().get_nodes_in_group("blockable")
-onready var __heart = $heart
+onready var __heart = $human/heart
 onready var __minigames: Array = $mini_games.get_children()
 onready var __success_audio: AudioStreamPlayer = $success
 onready var __timer: Timer = $timer
