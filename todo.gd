@@ -43,13 +43,19 @@
 #	minigames -> clean pipe, patch pipe, unbend pipe
 
 
-# [ ] update all nodes to be blockable (veins)
-# [ ] remove blockage node
-# [ ] add limb controller that knows about all the elements and if one of them
+# [x] update all nodes to be blockable (veins)
+# [x] remove blockage node
+# [x] add limb controller that knows about all the elements and if one of them
 #	is blocked (preventing two blockages in the same limb)
-# [ ] update blockage creator
-# [ ] add scoring system
+# [x] update blockage creator
+# [x] add scoring system
 # [x] add new pipe clean mini game
 # [ ] add new pipe bend mini game
 # [ ] balance timings for blockages
-#
+# [ ] add blockage handling to shader
+# [ ] add death handling to shader
+# [ ] add bpm mechanic to score / timer
+# [ ] add menu
+# [ ] POLISH
+# [ ] add ui
+# [ ] fix rotation of right arm symbols
