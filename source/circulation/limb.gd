@@ -86,6 +86,8 @@ func kill() -> void:
 	self.__handle_flow(0.5)
 	self.z_index = -2
 
+	Event.emit_signal("limb_died")
+
 
 func unblock() -> void:
 	.unblock()

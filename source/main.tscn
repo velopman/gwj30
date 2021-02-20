@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://assets/audio/music.ogg" type="AudioStream" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://source/circulation/limb.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/audio/success.ogg" type="AudioStream" id=4]
@@ -9,6 +8,7 @@
 [ext_resource path="res://source/main.gd" type="Script" id=7]
 [ext_resource path="res://source/mini_games/mini_games.tscn" type="PackedScene" id=8]
 [ext_resource path="res://source/circulation/vein.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/audio/music-tense.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/art/left_arm_in.png" type="Texture" id=11]
 [ext_resource path="res://assets/art/left_arm_out.png" type="Texture" id=12]
 [ext_resource path="res://assets/shaders/veins.tres" type="Material" id=13]
@@ -18,9 +18,12 @@
 [ext_resource path="res://assets/art/left_leg_out.png" type="Texture" id=17]
 [ext_resource path="res://assets/art/right_leg_in.png" type="Texture" id=18]
 [ext_resource path="res://assets/art/right_leg_out.png" type="Texture" id=19]
+[ext_resource path="res://assets/audio/music-normal.ogg" type="AudioStream" id=20]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 7 )
+music_normal = ExtResource( 20 )
+music_tense = ExtResource( 10 )
 
 [node name="text" type="Label" parent="."]
 margin_left = 185.053
@@ -120,7 +123,6 @@ rotation = 1.87679
 [node name="vein4" parent="human/heart/right_arm" instance=ExtResource( 9 )]
 position = Vector2( -209.895, 227.951 )
 rotation = -1.19953
-scale = Vector2( 1, 1 )
 
 [node name="vein5" parent="human/heart/right_arm" instance=ExtResource( 9 )]
 position = Vector2( -156.706, 98.3471 )
@@ -203,7 +205,6 @@ position = Vector2( 623, 360 )
 z_index = 5
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
 autoplay = true
 
 [node name="success" type="AudioStreamPlayer" parent="."]
