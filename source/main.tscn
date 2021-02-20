@@ -88,45 +88,47 @@ rotation = 3.57512
 
 [node name="right_arm" parent="human/heart" instance=ExtResource( 3 )]
 position = Vector2( -5, 0 )
-scale = Vector2( -1, 1 )
 
 [node name="in" type="Sprite" parent="human/heart/right_arm"]
 material = ExtResource( 13 )
-position = Vector2( 145.758, 155.422 )
+position = Vector2( -145.758, 155.422 )
+scale = Vector2( -1, 1 )
 z_index = -1
 texture = ExtResource( 11 )
 script = ExtResource( 15 )
 
 [node name="out" type="Sprite" parent="human/heart/right_arm"]
 material = ExtResource( 13 )
-position = Vector2( 150.307, 144.305 )
+position = Vector2( -150.307, 144.305 )
+scale = Vector2( -1, 1 )
 z_index = -1
 texture = ExtResource( 12 )
 script = ExtResource( 14 )
 
 [node name="vein" parent="human/heart/right_arm" instance=ExtResource( 9 )]
-position = Vector2( 98.8569, -8.87985 )
-rotation = 0.417931
+position = Vector2( -98.8569, -8.87985 )
+rotation = 2.72366
 
 [node name="vein2" parent="human/heart/right_arm" instance=ExtResource( 9 )]
-position = Vector2( 174.631, 91.056 )
-rotation = 1.17004
+position = Vector2( -174.631, 91.056 )
+rotation = 1.97155
 
 [node name="vein3" parent="human/heart/right_arm" instance=ExtResource( 9 )]
-position = Vector2( 223.63, 223.206 )
-rotation = 1.2648
+position = Vector2( -223.63, 223.206 )
+rotation = 1.87679
 
 [node name="vein4" parent="human/heart/right_arm" instance=ExtResource( 9 )]
-position = Vector2( 209.895, 227.951 )
-rotation = 4.34112
+position = Vector2( -209.895, 227.951 )
+rotation = -1.19953
+scale = Vector2( 1, 1 )
 
 [node name="vein5" parent="human/heart/right_arm" instance=ExtResource( 9 )]
-position = Vector2( 156.706, 98.3471 )
-rotation = 4.28701
+position = Vector2( -156.706, 98.3471 )
+rotation = -1.14542
 
 [node name="vein6" parent="human/heart/right_arm" instance=ExtResource( 9 )]
-position = Vector2( 89.0321, 7.44977 )
-rotation = 3.57512
+position = Vector2( -89.0321, 7.44977 )
+rotation = -0.433527
 
 [node name="left_leg" parent="human/heart" instance=ExtResource( 3 )]
 
