@@ -9,20 +9,36 @@ uniform float y_start = 0.0;
 uniform float y_end = 1.0;
 
 uniform float blocked_y = 2.0;
+uniform bool is_dead = false;
+
+uniform float time_scale = 0.3;
+
+
+float inverse_lerp(float a, float b, float v) 
+{
+	return (v - a) / (b - a);
+}
+
 
 void fragment() 
 {
 	vec4 color = texture(TEXTURE, UV);
 	
-	if (color.a == 1.0) {
-		float position = mix(y_start, y_end, (TIME - start_time) * 1.0 / 0.3);
-		float dist = distance(vec2(position, 0.0), vec2(UV.y, 0.0));
-	
-		if (dist <= 0.05)
+	if (color.a != 0.0)
+	{
+		float blocked_position = inverse_lerp(y_start, y_end, blocked_y);
+		float position = inverse_lerp(y_start, y_end, UV.y);
+		float time = (TIME - start_time) * 1.0 / time_scale;
+		
+		if (position < blocked_position && abs(time - position) < 0.05)
 		{
-			color = mix(color, vec4(1.0), 0.5  );
+			color = mix(color, vec4(1.0), 0.5);
 		}
 		
+		if (is_dead && position < time)
+		{
+			color = mix(color, vec4(vec3(0.0), 1.0), 0.5);
+		}
 	}
 	
 	COLOR = color;
@@ -34,3 +50,5 @@ shader_param/start_time = 0.0
 shader_param/y_start = 0.0
 shader_param/y_end = 1.0
 shader_param/blocked_y = 2.0
+shader_param/is_dead = false
+shader_param/time_scale = 0.3

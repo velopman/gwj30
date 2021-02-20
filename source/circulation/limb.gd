@@ -57,12 +57,16 @@ func block() -> void:
 	var index: int = randi() % self.__nodes.size()
 	self.__nodes[index].block()
 	self.__blocked_audio.play()
+	self.z_index = -1
 
 
 func flow(from_node: CirculationNode) -> void:
+	if self._dead:
+		return
+
 	if from_node == null:
 		.flow(from_node)
-		self.__handle_visual_flow()
+		self.__handle_flow()
 	else:
 		self._update_health(self.HEALTH_REGEN)
 
@@ -71,9 +75,22 @@ func kill() -> void:
 	.kill()
 
 	for node in self.__nodes:
-		self.__timer.start(0.1)
-		yield(self.__timer, "timeout")
 		node.kill()
+
+	self.__vein_out.material.set_shader_param("is_dead", true)
+
+	var start_time = OS.get_ticks_msec() / 1000.0 + 10.0
+	self.__vein_in.material.set_shader_param("start_time", start_time)
+	self.__vein_in.material.set_shader_param("is_dead", true)
+
+	self.__handle_flow(0.5)
+	self.z_index = -2
+
+
+func unblock() -> void:
+	.unblock()
+
+	self.z_index = 0
 
 
 # Protected methods
@@ -89,7 +106,7 @@ func _update_health(amount: float) -> void:
 
 
 # Private methods
-func __handle_visual_flow() -> void:
+func __handle_flow(time_scale: float = 0.3) -> void:
 	var blocked_index: int = -1
 
 	for index in self.__nodes.size():
@@ -97,21 +114,42 @@ func __handle_visual_flow() -> void:
 			blocked_index = index
 			break
 
-	var start_time = OS.get_ticks_msec() / 1000.0
-	self.__vein_out.material.set_shader_param("start_time", start_time)
+	var blocked_out = (
+		!self._dead &&
+		self._blocked &&
+		blocked_index < self.__nodes.size() / 2
+	)
+	self.__handle_vein_flow(self.__vein_out, blocked_index, blocked_out, time_scale)
 
-	if self.is_blocked() && blocked_index < self.__nodes.size() / 2:
-		var blocked_y: float = self.__nodes[blocked_index].position.y
-		self.__vein_out.material.set_shader_param("blocked_y", blocked_y)
+	if blocked_out:
 		return
 
-	self.__timer.start(0.3)
+	self.__timer.start(time_scale)
 	yield(self.__timer, "timeout")
 
-	start_time = OS.get_ticks_msec() / 1000.0
-	self.__vein_in.material.set_shader_param("start_time", start_time)
+	var blocked_in = (
+		!self._dead &&
+		self._blocked &&
+		blocked_index >= self.__nodes.size() / 2
+	)
+	self.__handle_vein_flow(self.__vein_in, blocked_index, blocked_in, time_scale)
 
 
-	if self.is_blocked() && blocked_index >= self.__nodes.size() / 2:
-		var blocked_y: float = self.__nodes[blocked_index].position.y
-		self.__vein_out.material.set_shader_param("blocked_y", blocked_y)
+func __handle_vein_flow(vein, blocked_index: int, blocked: bool, time_scale: float) -> void:
+	var start_time = OS.get_ticks_msec() / 1000.0
+	vein.material.set_shader_param("start_time", start_time)
+	vein.material.set_shader_param("time_scale", time_scale)
+
+	var blocked_y: float = 0.0 if vein is VeinIn else 2.0
+	if blocked:
+		blocked_y = self.__nodes[blocked_index].position.y
+		blocked_y = self.__to_texture_space(vein, blocked_y)
+	vein.material.set_shader_param("blocked_y", blocked_y)
+
+
+func __to_texture_space(sprite: Sprite, y_position: float) -> float:
+	var texture: Texture = sprite.texture
+	var image: Image = texture.get_data()
+	var height: float = image.get_height()
+
+	return (y_position - (sprite.position.y - height / 2.0)) / height
