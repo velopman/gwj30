@@ -50,12 +50,12 @@
 # [x] update blockage creator
 # [x] add scoring system
 # [x] add new pipe clean mini game
+# [x] balance timings for blockages
+# [x] add blockage handling to shader
+# [x] add death handling to shader
+# [x] fix rotation of right arm symbols
 # [ ] add new pipe bend mini game
-# [ ] balance timings for blockages
-# [ ] add blockage handling to shader
-# [ ] add death handling to shader
 # [ ] add bpm mechanic to score / timer
 # [ ] add menu
 # [ ] POLISH
 # [ ] add ui
-# [ ] fix rotation of right arm symbols

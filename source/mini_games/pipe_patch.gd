@@ -4,12 +4,14 @@ export(Texture) var patch_normal = null
 export(Texture) var patch_hover = null
 export(Texture) var patch_success = null
 
-const PATCH_POSTIION_END: Vector2 = Vector2(32.0, 10.0)
+const PATCH_POSTIION_END: Vector2 = Vector2(7.0, 23.0)
 
 onready var __timer: Timer = $timer
 onready var __patch: Sprite = $patch
+onready var __pipe: Sprite = $pipe
 var __patch_postion_start: Vector2 = Vector2.ZERO
 
+var __completed: bool = false
 var __following: bool = false
 var __over: bool = false
 var __near: bool = false
@@ -24,9 +26,13 @@ func _ready() -> void:
 	)
 
 	self.__patch.position = self.__patch_postion_start
+	self.__pipe.modulate = Globals.get_unblocking_color()
 
 
 func _process(delta: float) -> void:
+	if self.__completed:
+		return
+
 	if self.__following:
 		var distance = (self.get_local_mouse_position() - self.PATCH_POSTIION_END).length()
 		if distance < 20.0:
@@ -43,6 +49,7 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_released("pressed"):
 		self.__following = false
 		if self.__near:
+			self.__completed = true
 			self.play("fixed")
 			self.__patch.visible = false
 

@@ -42,6 +42,10 @@ func _ready() -> void:
 
 	previous_node.set_next_node(self)
 
+	var size = self.__nodes.size()
+	for index in self.__nodes.size():
+		self.__nodes[index].out = index < size / 2
+
 
 func _process(delta: float) -> void:
 	self._update_health(-delta)

@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var __button = $button
-onready var __heartbeat = $heartbeat
+onready var __button: TextureButton = $button
+onready var __heartbeat: AudioStreamPlayer = $heartbeat
 
 var __limb_nodes = []
 var __pumping = false
@@ -14,6 +14,8 @@ func _ready() -> void:
 			self.__limb_nodes.append(limb)
 
 	self.__button.connect("pressed", self, "__pressed")
+	Event.connect("unblock_started", self, "__disable", [true])
+	Event.connect("unblock_finished", self, "__disable", [false])
 
 
 # Public methods
@@ -28,6 +30,15 @@ func limb_count() -> int:
 
 
 # Private methods
+func __disable(value: bool) -> void:
+	if value:
+		self.__button.mouse_filter = self.__button.MOUSE_FILTER_IGNORE
+	else:
+		self.__button.mouse_filter = self.__button.MOUSE_FILTER_STOP
+
+	self.__button.disabled = value
+
+
 func __pressed():
 	if self.__pumping:
 		return

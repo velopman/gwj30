@@ -201,11 +201,11 @@ position = Vector2( -60.5465, 535.37 )
 position = Vector2( -50.455, 324.025 )
 
 [node name="mini_games" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 623, 360 )
 z_index = 5
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-autoplay = true
 
 [node name="success" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

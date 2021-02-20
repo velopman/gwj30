@@ -1,7 +1,8 @@
-extends Sprite
+extends Node2D
 
 const CLEAR_RADIUS: int = 7
 
+onready var __sprite: Sprite = $sprite
 onready var __dust: TileMap = $dust
 onready var __timer: Timer = $timer
 
@@ -9,6 +10,8 @@ var __finished = false
 
 
 func _ready() -> void:
+	self.__sprite.modulate = Globals.get_unblocking_color()
+
 	for position in self.__dust.get_used_cells():
 		self.__dust.set_cellv(position, randi() % 4)
 

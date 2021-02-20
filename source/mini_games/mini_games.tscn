@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://source/mini_games/mini_games.gd" type="Script" id=1]
 [ext_resource path="res://source/mini_games/pipe_patch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/mini_games/pipe_clean.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/art/mini_game_background.png" type="Texture" id=4]
 
 [node name="mini_games" type="Node2D"]
 position = Vector2( 640, 360 )
 script = ExtResource( 1 )
 mini_games = [ ExtResource( 2 ), ExtResource( 3 ) ]
+
+[node name="mini_game_background" type="Sprite" parent="."]
+texture = ExtResource( 4 )

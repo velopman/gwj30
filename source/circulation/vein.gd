@@ -6,6 +6,8 @@ onready var __hazard_container: Node2D = $hazard_container
 onready var __sprite: Sprite = $sprite
 onready var __timer: Timer = $timer
 
+var out: bool = false
+
 var __over: bool = false
 
 
@@ -13,6 +15,9 @@ var __over: bool = false
 func _ready() -> void:
 	self.__hazard_container.rotation = -self.global_rotation
 	self.__hazard_container.global_scale = Vector2.ONE
+
+	Event.connect("unblock_started", self.__hazard, "set_disabled", [true])
+	Event.connect("unblock_finished", self.__hazard, "set_disabled", [false])
 
 
 # Public Methods
@@ -53,6 +58,7 @@ func unblock() -> void:
 
 # Private methods
 func _on_hazard_pressed():
+	Event.emit_signal("unblock_config", self.global_position, self.out)
 	Event.emit_signal("unblock_started")
 
 	self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_PASS
