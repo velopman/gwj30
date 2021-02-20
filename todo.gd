@@ -56,29 +56,35 @@
 # [x] fix rotation of right arm symbols
 # [ ] add new pipe bend mini game
 # [ ] add bpm mechanic to score / timer
-# [ ] add menu
+# [x] add menu
 # [ ] POLISH
-# [ ] add ui
+# [x] add ui
 
 # [ ] Add limb health UI
 # [ ] Add score UI
 # [ ] Add end game UI
-	# [ ] Add ability to restart
-	# [ ] Add ability to go to main menu
-# [ ] Add pause screen
-	# [ ] Add ability to restart
-	# [ ] Add ability to set settings
-	# [ ] Add ability to go to main menu
+	# [ ] Show score
+	# [x] Add ability to restart
+	# [x] Add ability to go to main menu
+# [x] Add pause screen
+	# [x] Add ability to restart
+	# [x] Add ability to set settings
+	# [x] Add ability to go to main menu
 # [x] Add main menu
 	# [x] Add title image
 # [x] Add settings menu
-# [ ] Add BPM mechanic
-# [ ] Add third mini game
 # [ ] Create Itch page
 	# [x] Title image
 	# [ ] Screenshots
 	# [ ] Background image
 	# [ ] Style
-# [ ] Fix bug where hazard can't be clicked
+# [ ] Change heart to dark when dead
+# [ ] Add sound effects to the buttons (hazard)
+# [ ] Fix z index ordering of limbs once dead
+# [x] Fix bug where hazard can't be clicked
+# [ ] Fix audio sliders not matching settings
+# [ ] Fix audio slider levels
+# [ ] STRETCH: Add BPM mechanic
+# [ ] STRETCH: Add third mini game
 
 

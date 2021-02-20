@@ -27,6 +27,8 @@ func block() -> void:
 
 	self.__hazard.visible = true
 	self.__hazard.disabled = false || self.__disabled
+	if !self.__disabled:
+		self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_STOP
 
 
 func flow(from_node: CirculationNode) -> void:

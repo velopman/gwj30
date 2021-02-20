@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/audio/music-normal.ogg" type="AudioStream" id=1]
+[ext_resource path="res://source/autoloads/menu_music.gd" type="Script" id=2]
+
+[node name="menu_music" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+pitch_scale = 0.5
+autoplay = true
+bus = "Music"
+script = ExtResource( 2 )

@@ -87,7 +87,7 @@ func kill() -> void:
 	self.__vein_in.material.set_shader_param("start_time", start_time)
 	self.__vein_in.material.set_shader_param("is_dead", true)
 
-	self.__handle_flow(0.5)
+	yield(self.__handle_flow(0.5), "completed")
 	self.z_index = -2
 
 	Event.emit_signal("limb_died")

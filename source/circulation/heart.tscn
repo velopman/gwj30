@@ -20,5 +20,6 @@ __meta__ = {
 }
 
 [node name="heartbeat" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 2 )
 bus = "Sound Effects"

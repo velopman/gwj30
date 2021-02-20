@@ -9,4 +9,4 @@ func is_completed() -> bool:
 
 
 func update( delta: float ) -> void:
-	self._completed = true 
+	self._completed = true

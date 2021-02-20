@@ -14,6 +14,7 @@ onready var __minigames: Array = $mini_games.get_children()
 onready var __music: AudioStreamPlayer = $music
 onready var __success_audio: AudioStreamPlayer = $success
 onready var __timer: Timer = $timer
+onready var __end_game: Control = $menu_container/end
 
 var __event_cooldown: float = self.EVENT_COOLDOWN_INITIAL
 var __event_frequency: float = self.EVENT_FREQUENCY_INITIAL
@@ -56,19 +57,18 @@ func _process(delta: float) -> void:
 
 # Private methods
 func __limb_died() -> void:
-	pass
-#	self.__music.pitch_scale += 0.05
-#	match self.__heart.limb_count():
-#		2:
-#			var playback_position = self.__music.get_playback_position()
-#			self.__music.stream = self.music_tense
-#			self.__music.play(playback_position)
+	match self.__heart.limb_count():
+		0:
+			self.__end_game.visible = true
+			self.__end_game.mouse_filter = Control.MOUSE_FILTER_STOP
+			self.get_tree().paused = true
+
+	print("Limb death", self.__heart.limb_count())
 
 func __score() -> void:
 	var limb_count: int = self.__heart.limb_count()
 
 	if limb_count == 0:
-		# TODO: End game
 		return
 
 	self.__score += limb_count
