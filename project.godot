@@ -75,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="pump-it"
-run/main_scene="res://source/main.tscn"
+run/main_scene="res://source/menus/menu_start.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -88,7 +88,7 @@ SettingsManager="*res://source/autoloads/settings_manager.gd"
 Logger="*res://source/autoloads/logger.gd"
 Time="*res://source/autoloads/time.gd"
 PhysicsTime="*res://source/autoloads/physics_time.gd"
-SceneManager="*res://source/autoloads/scene_manager.gd"
+SceneManager="*res://source/autoloads/scene_manager.tscn"
 TaskManager="*res://source/autoloads/task_manager.gd"
 
 [display]

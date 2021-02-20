@@ -59,3 +59,26 @@
 # [ ] add menu
 # [ ] POLISH
 # [ ] add ui
+
+# [ ] Add limb health UI
+# [ ] Add score UI
+# [ ] Add end game UI
+	# [ ] Add ability to restart
+	# [ ] Add ability to go to main menu
+# [ ] Add pause screen
+	# [ ] Add ability to restart
+	# [ ] Add ability to set settings
+	# [ ] Add ability to go to main menu
+# [x] Add main menu
+	# [x] Add title image
+# [x] Add settings menu
+# [ ] Add BPM mechanic
+# [ ] Add third mini game
+# [ ] Create Itch page
+	# [x] Title image
+	# [ ] Screenshots
+	# [ ] Background image
+	# [ ] Style
+# [ ] Fix bug where hazard can't be clicked
+
+

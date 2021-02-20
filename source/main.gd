@@ -31,7 +31,7 @@ func _ready() -> void:
 	Event.connect("unblock_finished", self.__success_audio, "play")
 	Event.connect("limb_died", self, "__limb_died")
 
-	self.__music.stream = self.music_normal
+	self.__music.stream = self.music_tense
 	self.__music.play()
 
 
@@ -56,11 +56,13 @@ func _process(delta: float) -> void:
 
 # Private methods
 func __limb_died() -> void:
-	match self.__heart.limb_count():
-		1:
-			var playback_position = self.__music.get_playback_position()
-			self.__music.stream = self.music_tense
-			self.__music.play(playback_position)
+	pass
+#	self.__music.pitch_scale += 0.05
+#	match self.__heart.limb_count():
+#		2:
+#			var playback_position = self.__music.get_playback_position()
+#			self.__music.stream = self.music_tense
+#			self.__music.play(playback_position)
 
 func __score() -> void:
 	var limb_count: int = self.__heart.limb_count()

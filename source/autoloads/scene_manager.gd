@@ -9,6 +9,7 @@ func _ready() -> void:
 	for scene in self.scenes:
 		var scene_name = scene.get_state().get_node_name( 0 )
 		self.__scenes_by_name[ scene_name ] = scene
+		print(scene_name)
 
 
 func load_scene( name: String ) -> void:

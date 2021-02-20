@@ -8,6 +8,7 @@ onready var __timer: Timer = $timer
 
 var out: bool = false
 
+var __disabled: bool = false
 var __over: bool = false
 
 
@@ -16,8 +17,8 @@ func _ready() -> void:
 	self.__hazard_container.rotation = -self.global_rotation
 	self.__hazard_container.global_scale = Vector2.ONE
 
-	Event.connect("unblock_started", self.__hazard, "set_disabled", [true])
-	Event.connect("unblock_finished", self.__hazard, "set_disabled", [false])
+	Event.connect("unblock_started", self, "__disable", [true])
+	Event.connect("unblock_finished", self, "__disable", [false])
 
 
 # Public Methods
@@ -25,8 +26,7 @@ func block() -> void:
 	.block()
 
 	self.__hazard.visible = true
-	self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_STOP
-	self.__hazard.disabled = false
+	self.__hazard.disabled = false || self.__disabled
 
 
 func flow(from_node: CirculationNode) -> void:
@@ -53,15 +53,26 @@ func unblock() -> void:
 	.unblock()
 
 	self.__hazard.visible = false
-	self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_PASS
+	self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_IGNORE
 
 
 # Private methods
+func __disable(value: bool) -> void:
+	if value:
+		self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_IGNORE
+	else:
+		self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_STOP
+
+	self.__disabled = value
+	self.__hazard.disabled = value
+
+
+
 func _on_hazard_pressed():
 	Event.emit_signal("unblock_config", self.global_position, self.out)
 	Event.emit_signal("unblock_started")
 
-	self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_PASS
+	self.__hazard.mouse_filter = self.__hazard.MOUSE_FILTER_IGNORE
 	self.__hazard.disabled = true
 
 	yield(Event, "unblock_finished")

@@ -206,6 +206,7 @@ position = Vector2( 623, 360 )
 z_index = 5
 
 [node name="music" type="AudioStreamPlayer" parent="."]
+pitch_scale = 0.5
 
 [node name="success" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
