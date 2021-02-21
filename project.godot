@@ -97,6 +97,7 @@ PhysicsTime="*res://source/autoloads/physics_time.gd"
 SceneManager="*res://source/autoloads/scene_manager.tscn"
 TaskManager="*res://source/autoloads/task_manager.gd"
 MenuMusic="*res://source/autoloads/menu_music.tscn"
+AudioManager="*res://source/autoloads/audio_manager.gd"
 
 [display]
 

@@ -74,13 +74,13 @@
 	# [x] Add title image
 # [x] Add settings menu
 # [ ] Create Itch page
-	# [ ] Add icons
-	# [ ] Ensure mobile support
 	# [ ] Clean up assets and builds
 	# [x] Title image
 	# [ ] Screenshots
 	# [ ] Background image
 	# [ ] Style
+	# [ ] STRETCH: Add icons
+	# [ ] STRETCH: Ensure mobile support
 # [ ] Change heart to dark when dead
 # [x] Add sound effects to the buttons (hazard)
 # [x] Add tutorial
@@ -88,8 +88,8 @@
 	# [x] fix hazard command
 # [ ] Fix z index ordering of limbs once dead
 # [x] Fix bug where hazard can't be clicked
-# [ ] Fix audio sliders not matching settings
-# [ ] Fix audio slider levels
+# [x] Fix audio sliders not matching settings
+# [x] Fix audio slider levels
 # [ ] STRETCH: Add BPM mechanic
 # [ ] STRETCH: Add third mini game
 # [x] Create font: score, limb, lost, 0-9, %, :
