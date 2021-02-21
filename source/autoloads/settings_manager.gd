@@ -26,9 +26,11 @@ func _ready() -> void:
 		self.__settings = FileManager.load_json(self.SETTINGS_PATH)
 
 		if "sound_effects" in self.__settings["volume"]:
-			self.set_setting("volume/Master", self.__settings["volume"]["master"])
-			self.set_setting("volume/Music", self.__settings["volume"]["music"])
-			self.set_setting("volume/Sound Effects", self.__settings["volume"]["sound_effects"])
+			self.__settings["volume"] = {
+				"Master": self.__settings["volume"]["master"],
+				"Music": self.__settings["volume"]["music"],
+				"Sound Effects": self.__settings["volume"]["sound_effects"],
+			}
 			self.save_settings()
 
 
