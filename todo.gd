@@ -60,10 +60,10 @@
 # [ ] POLISH
 # [x] add ui
 
-# [ ] Add limb health UI
-# [ ] Add score UI
-# [ ] Add end game UI
-	# [ ] Show score
+# [x] Add limb health UI
+# [x] Add score UI
+# [x] Add end game UI
+	# [x] Show score
 	# [x] Add ability to restart
 	# [x] Add ability to go to main menu
 # [x] Add pause screen
@@ -74,17 +74,24 @@
 	# [x] Add title image
 # [x] Add settings menu
 # [ ] Create Itch page
+	# [ ] Add icons
+	# [ ] Ensure mobile support
+	# [ ] Clean up assets and builds
 	# [x] Title image
 	# [ ] Screenshots
 	# [ ] Background image
 	# [ ] Style
 # [ ] Change heart to dark when dead
-# [ ] Add sound effects to the buttons (hazard)
+# [x] Add sound effects to the buttons (hazard)
+# [x] Add tutorial
+	# [x] pump heart command
+	# [x] fix hazard command
 # [ ] Fix z index ordering of limbs once dead
 # [x] Fix bug where hazard can't be clicked
 # [ ] Fix audio sliders not matching settings
 # [ ] Fix audio slider levels
 # [ ] STRETCH: Add BPM mechanic
 # [ ] STRETCH: Add third mini game
+# [x] Create font: score, limb, lost, 0-9, %, :
 
 

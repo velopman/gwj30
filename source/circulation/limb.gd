@@ -12,6 +12,7 @@ var __nodes: Array = []
 var __health: float = HEALTH_MAX
 var __vein_in: VeinIn = null
 var __vein_out: VeinOut = null
+var __limb_health: LimbHealth = null
 
 
 # Lifecycle methods
@@ -27,6 +28,10 @@ func _ready() -> void:
 
 		if node is VeinOut:
 			self.__vein_out = node
+			continue
+
+		if node is LimbHealth:
+			self.__limb_health = node
 			continue
 
 
@@ -106,6 +111,7 @@ func _update_health(amount: float) -> void:
 
 	self.__health += amount
 	self.__health = clamp(self.__health, self.HEALTH_MIN, self.HEALTH_MAX)
+	self.__limb_health.set_health(self.__health / self.HEALTH_MAX + self.HEALTH_MIN)
 
 	if self.__health == self.HEALTH_MIN:
 		self.kill()

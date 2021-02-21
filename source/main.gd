@@ -15,6 +15,8 @@ onready var __music: AudioStreamPlayer = $music
 onready var __success_audio: AudioStreamPlayer = $success
 onready var __timer: Timer = $timer
 onready var __end_game: Control = $menu_container/end
+onready var __score_output: TileMap = $score
+onready var __score_final_output: TileMap = $menu_container/end/final_score
 
 var __event_cooldown: float = self.EVENT_COOLDOWN_INITIAL
 var __event_frequency: float = self.EVENT_FREQUENCY_INITIAL
@@ -63,7 +65,14 @@ func __limb_died() -> void:
 			self.__end_game.mouse_filter = Control.MOUSE_FILTER_STOP
 			self.get_tree().paused = true
 
-	print("Limb death", self.__heart.limb_count())
+			var best_score = SettingsManager.get_setting("score/best", 0)
+			if self.__score > best_score:
+				SettingsManager.set_setting("score/best", self.__score, true)
+				best_score = self.__score
+
+			self.__score_final_output.set_text(
+				"score:%d\n\n best:%d" % [self.__score, best_score]
+			)
 
 func __score() -> void:
 	var limb_count: int = self.__heart.limb_count()
@@ -72,6 +81,7 @@ func __score() -> void:
 		return
 
 	self.__score += limb_count
+	self.__score_output.set_text("score: %d" % self.__score)
 
 func __start() -> void:
 	self.__started = true

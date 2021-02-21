@@ -10,6 +10,9 @@ var __settings_default: Dictionary = {
 		"master": 1.0,
 		"music": 1.0,
 		"sound_effects": 1.0
+	},
+	"score": {
+		"best": 0,
 	}
 }
 
@@ -21,8 +24,10 @@ func _ready() -> void:
 
 	if FileManager.file_exists(self.SETTINGS_PATH):
 		self.__settings = FileManager.load_json(self.SETTINGS_PATH)
+		Logger.info("Loading settings")
 	else:
 		FileManager.save_json(self.SETTINGS_PATH, self.__settings)
+		Logger.info("Creating settings")
 
 
 func get_setting(name, default = null):
@@ -50,8 +55,10 @@ func save_settings() -> void:
 	FileManager.save_json(self.SETTINGS_PATH, self.__settings)
 
 
-func set_setting(name: String, value) -> void:
+func set_setting(name: String, value, save: bool = false) -> void:
 	self.__setting_changed(name, value)
+	if save:
+		self.save_settings()
 
 
 func __setting_changed(name: String, value) -> void:

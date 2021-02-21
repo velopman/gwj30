@@ -23,4 +23,5 @@ func _process(delta: float) -> void:
 
 
 func change_scene() -> void:
+	MenuMusic.play_button_sound()
 	SceneManager.load_scene(self.scene_name)

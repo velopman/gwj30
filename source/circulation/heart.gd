@@ -2,6 +2,7 @@ extends Node2D
 
 onready var __button: TextureButton = $button
 onready var __heartbeat: AudioStreamPlayer = $heartbeat
+onready var __tutorial: Sprite = $tutorial_pump
 
 var __limb_nodes = []
 var __pumping = false
@@ -40,6 +41,8 @@ func __disable(value: bool) -> void:
 
 
 func __pressed():
+	self.__tutorial.visible = false
+
 	if self.__pumping:
 		return
 

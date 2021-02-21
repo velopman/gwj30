@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://source/circulation/heart.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/heartbeat.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/art/heart_normal.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/heart_hover.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/tutorial_pump.png" type="Texture" id=5]
 
 [node name="heart" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,3 +24,8 @@ __meta__ = {
 pause_mode = 2
 stream = ExtResource( 2 )
 bus = "Sound Effects"
+
+[node name="tutorial_pump" type="Sprite" parent="."]
+position = Vector2( 126.91, -86.284 )
+rotation = 1.5708
+texture = ExtResource( 5 )
